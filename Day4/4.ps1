@@ -1,0 +1,1 @@
+﻿param([int]$n=5,[string]$k="abcdef",[int]$o=0)$o..[int]::MaxValue|%{$m=[System.Security.Cryptography.MD5]::Create()}{if((-join($m.ComputeHash([System.Text.Encoding]::ASCII.GetBytes("$k$_")).ForEach{$_.ToString("X2")})).StartsWith("$("0"*$n)")){$_;continue}}
