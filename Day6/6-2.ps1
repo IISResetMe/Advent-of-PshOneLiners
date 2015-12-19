@@ -1,0 +1,1 @@
+﻿param([string[]]$s)$g=New-Object 'int[,]' 1000,1000;foreach($l in $s){$a,$f,$t,$e=$l-split'(\d+,\d+)'|?{$_}|%{$_.Trim()};foreach($x in ($f-split',')[0]..($e-split',')[0]){foreach($y in ($f-split',')[1]..($e-split',')[1]){if($a-eq'turn on'){$g[$x,$y]++}elseif($a-eq'turn off'){$g[$x,$y]=[System.Math]::Max((--$g[$x,$y]),0)}else{$g[$x,$y]+=2}}}}($g|Measure-Object -Sum).Sum

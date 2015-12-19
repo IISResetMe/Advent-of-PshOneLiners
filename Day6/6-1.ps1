@@ -1,0 +1,1 @@
+﻿param([string[]]$s)$g=New-Object 'int[,]' 1000,1000;foreach($l in $s){$a,$f,$t,$e=$l-split'(\d+,\d+)'|?{$_}|%{$_.Trim()};foreach($x in ($f-split',')[0]..($e-split',')[0]){foreach($y in ($f-split',')[1]..($e-split',')[1]){$g[$x,$y]=if($a-eq'turn on'){1}elseif($a-eq'turn off'){0}else{if($g[$x,$y]){0}else{1}}}}}$g.Where({$_-eq1}).Count
