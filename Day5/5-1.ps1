@@ -1,0 +1,1 @@
+﻿param([string[]]$s)@($s-notmatch'ab|cd|pq|xy'-match'([a-z])\1'-match'(?=(.*[aeiou]){3}.*)(.*)').Count

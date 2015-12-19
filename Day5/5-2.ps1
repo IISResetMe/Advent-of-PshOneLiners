@@ -1,0 +1,1 @@
+﻿param([string[]]$s)@($s-match'(..).*\1'-match'(.).\1').Count
